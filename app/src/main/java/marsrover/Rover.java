@@ -25,18 +25,29 @@ public class Rover {
     }
 
     private void processCommand(char c) {
-        switch (c) {
-            case 'L':
+
+        Command command = validateCommand(c);
+
+        switch (command) {
+            case L:
                 turnLeft();
                 break;
-            case 'R':
+            case R:
                 turnRight();
                 break;
-            case 'M':
+            case M:
                 move();
                 break;
             default:
                 throw new IllegalArgumentException("Invalid Command");
+        }
+    }
+
+    private Command validateCommand(char c) {
+        try {
+            return Command.valueOf(String.valueOf(c));
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid Command", e);
         }
     }
 
@@ -93,7 +104,7 @@ public class Rover {
                 x--;
                 break;
             default:
-                throw new IllegalArgumentException("Invalid Command");
+                throw new IllegalArgumentException("Invalid Direction");
         }
     }
 
