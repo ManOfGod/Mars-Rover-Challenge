@@ -6,9 +6,14 @@ package marsrover;
 public class App {
 
     public static void main(String[] args) {
-        Rover rover = new Rover();
-        System.out.println("Initial Location: " + rover.getCurrentLocation());
-        rover.executeCommand("R");
-        System.out.println("Current Location: " + rover.getCurrentLocation());
+        Rover rover1 = new Rover();
+        System.out.println("Initial Location: " + rover1.getCurrentLocation());
+        rover1.executeCommand("LMLMLMLMM");
+        System.out.println("Current Location: " + rover1.getCurrentLocation());
+
+        Rover rover2 = new Rover(3, 3, Direction.E);
+        System.out.println("Initial Location: " + rover2.getCurrentLocation());
+        rover2.executeCommand("MMRMMRMRRM");
+        System.out.println("Current Location: " + rover2.getCurrentLocation());
     }
 }
